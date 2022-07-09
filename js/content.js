@@ -3,6 +3,8 @@ var current_idx = 1;
 var slide_width = 500;
 var slide_cnt;
 var slide_timing = 0.5;
+//타이머 추가하기
+//next랑 prev통합하기
 
 window.addEventListener("load", function() {
     console.log("load");
