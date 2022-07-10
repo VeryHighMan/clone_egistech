@@ -4,39 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EGISTECH</title>
 
     <!-- 리사이징 추가하기 -->
     <script type="text/javascript" src="./js/content.js"></script>
 
-    <!-- 폰트 추가하기 -->
+    <link rel="stylesheet" href="./css/common.css" />
+    <!-- <link rel="stylesheet" href="./css/fonts.css" /> -->
     <link rel="stylesheet" href="./css/content.css" />
 </head>
 <body>
-    <div id="top_bar">
+    <header id="top_bar">
         <div class="logo"></div>
         <nav class="menu">
-            <a>BUSINESS</a>
-            <a>PRODUCT</a>
-            <a>CONTACT</a>
+            <a class="NotoDL">BUSINESS</a>
+            <a class="NotoDL">PRODUCT</a>
+            <a class="NotoDL">CONTACT</a>
         </nav>
-    </div>
+    </header>
 
     <div class="img_slider_container">
         <!-- 양옆 버튼 추가하기 -->
+        <div class="prev_button"></div>
+        <div class="next_button"></div>
         <!-- 시작, 일시정지 버튼 추가하기 -->
 
         <div class="img_slider">
             <!-- slider로 변경 & 내용 추가하기 -->
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
+            <div class="slide"></div>
+            <div class="slide">
+                <div class="slide_inner">
+                    <div class="title OswaldR">Multimedia Communication for Business</div>
+                    <p class="content NotoDL">
+                        We Are The Best Partner.<br/>
+                        We provide the best multimedia communication and<br/>
+                        collaboration solutions to work together seamlessly and safely.
+                    </p>
+                    <div class="button"><span class="NotoDL">EXPLORE MORE</span></div>
+                </div>
+            </div>
+            <div class="slide">
+
+            </div>
+            <div class="slide">
+
+            </div>
+            <div class="slide"></div>
         </div>
     </div>
 
-
+    <footer id="bottom_bar">
+        <span class="NotoDL">Copyright 2017 EGISTECH Co., Ltd. All right reserved.</span>
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "OswaldR";
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+@font-face {
+    font-family: "NotoDL";
+    src: url(../fonts/NotoSansCJKkr-DemiLight.otf);
+}
+
+html {
+    height: 100%;
+}
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+}
+
+.OswaldR {
+    font-family: "OswaldR";
+}
+.NotoDL {
+    font-family: "NotoDL";
+}

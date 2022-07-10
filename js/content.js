@@ -12,7 +12,7 @@ window.addEventListener("load", function() {
     img_slider = document.querySelector(".img_slider");
     slide_width = window.innerWidth;
     img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
-    slide_cnt = document.querySelectorAll(".img_slider .img").length;
+    slide_cnt = document.querySelectorAll(".img_slider .slide").length;
 });
 
 function next() {
