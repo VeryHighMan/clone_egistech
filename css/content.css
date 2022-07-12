@@ -214,6 +214,7 @@
     align-items: center;
 }
 .nav_slider > div {
+    position: relative;
     font-size: 1.5em;
     height: 100%;
 
@@ -224,6 +225,17 @@
 .nav_slider > div:not(:first-child, :last-child) {
     margin-left: 2%;
     margin-right: 2%;
+}
+.nav_slider > div.focus {
+    font-weight: bold;
+}
+.nav_slider > div.focus::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    background-color: #36badb;
 }
 
 #bottom_bar {
