@@ -7,8 +7,9 @@ var current_idx = 1;
 var slide_width = 500;
 var slide_cnt;
 var slide_timing = 0.5;
-var timer = null;
-
+var slide_timer = null;
+var slide_ctrl_timer = null;
+var isPlaying = true;
 
 window.addEventListener("load", function() {
     console.log("load");
@@ -18,7 +19,7 @@ window.addEventListener("load", function() {
     img_slider = document.querySelector(".img_slider");
     prev_btn = document.querySelector(".prev_button");
     next_btn = document.querySelector(".next_button");
-    ctrl_btn = document.querySelector(".next_button");
+    ctrl_btn = document.querySelector(".control_button");
 
     bindEvt();
 
@@ -38,6 +39,16 @@ function bindEvt() {
     });
     ctrl_btn.addEventListener("click", function() {
         console.log("재생버튼");
+        if(isPlaying) {
+            ctrl_btn.classList.remove("playing");
+            isPlaying = false;
+        } else {
+            ctrl_btn.classList.add("playing");
+            isPlaying = true;
+            slide_ctrl_timer = setTimeout(function() {
+
+            }, 3000);
+        }
     });
 
 
@@ -49,7 +60,7 @@ function bindEvt() {
 }
 
 function next() {
-    if(timer) clearTimeout(timer);
+    if(slide_timer) clearTimeout(slide_timer);
     current_idx++;
     var x = current_idx * slide_width * -1;
     img_slider.style.transform = `translate(${x}px, 0px)`;
@@ -58,7 +69,7 @@ function next() {
     if(current_idx >= slide_cnt-1) {
         current_idx = 1;
         
-        timer = setTimeout(function() {
+        slide_timer = setTimeout(function() {
             img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
             img_slider.style.transition = "";
         }, slide_timing * 1000);
@@ -66,7 +77,7 @@ function next() {
 }
 
 function prev() {
-    if(timer) clearTimeout(timer);
+    if(slide_timer) clearTimeout(slide_timer);
     current_idx--;
     var x = current_idx * slide_width * -1;
     img_slider.style.transform = `translate(${x}px, 0px)`;
@@ -75,7 +86,7 @@ function prev() {
     if(current_idx <= 0) {
         current_idx = 3;
         
-        timer = setTimeout(function() {
+        slide_timer = setTimeout(function() {
             img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
             img_slider.style.transition = "";
         }, slide_timing * 1000);
@@ -87,7 +98,7 @@ function prev() {
  * @param {boolean} direction true 오른쪽 false 왼쪽 
 */
 function moveByDirection(direction) {
-    if(timer) clearTimeout(timer);
+    if(slide_timer) clearTimeout(slide_timer);
     if(direction) current_idx++;
     else current_idx--;
 
@@ -99,7 +110,7 @@ function moveByDirection(direction) {
         if(direction) current_idx = 1;
         else current_idx = 3;
 
-        timer = setTimeout(function() {
+        slide_timer = setTimeout(function() {
             img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
             img_slider.style.transition = "";
         }, slide_timing * 1000);
