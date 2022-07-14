@@ -8,20 +8,45 @@ var slide_width = 500;
 var slide_cnt;
 var slide_timing = 0.5;
 var timer = null;
-//next랑 prev통합하기
+
 
 window.addEventListener("load", function() {
     console.log("load");
+    // resize();
+	document.querySelector('.content-container').style.height = window.innerHeight + 'px';
 
     img_slider = document.querySelector(".img_slider");
     prev_btn = document.querySelector(".prev_button");
     next_btn = document.querySelector(".next_button");
     ctrl_btn = document.querySelector(".next_button");
 
+    bindEvt();
+
     slide_width = window.innerWidth;
     img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
     slide_cnt = document.querySelectorAll(".img_slider .slide").length;
 });
+
+function bindEvt() {
+    prev_btn.addEventListener("click", function() {
+        console.log("이전버튼");
+        moveByDirection(false);
+    });
+    next_btn.addEventListener("click", function() {
+        console.log("다음버튼");
+        moveByDirection(true);
+    });
+    ctrl_btn.addEventListener("click", function() {
+        console.log("재생버튼");
+    });
+
+
+
+
+
+
+
+}
 
 function next() {
     if(timer) clearTimeout(timer);
