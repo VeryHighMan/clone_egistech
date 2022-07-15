@@ -22,7 +22,7 @@ window.addEventListener("load", function() {
     prev_btn = document.querySelector(".prev_button");
     next_btn = document.querySelector(".next_button");
     ctrl_btn = document.querySelector(".control_button");
-    menus = document.querySelectorAll(".menu > a");
+    menus = document.querySelectorAll(".menu > div");
     nav_sliders = document.querySelectorAll(".nav_slider > div");
 
     bindEvt();
@@ -69,8 +69,12 @@ function bindEvt() {
 
     menus.forEach((el, idx) => {
         el.addEventListener("mouseover", function() {
-            console.log(el);
-            console.log(idx);
+            el.classList.add("on");
+
+        });
+        el.addEventListener("mouseleave", function() {
+            el.classList.remove("on");
+
         });
     });
 }

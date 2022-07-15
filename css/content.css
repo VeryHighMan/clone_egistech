@@ -24,8 +24,37 @@
     width: 30%;
     display: flex;
 }
-.menu a {
+.menu > div {
     margin: auto;
+    position: relative;
+    width: 130px;
+}
+.menu > div .menu_box {
+    width: 200%;
+    background-color: white;
+    position: absolute;
+    left: -50%;
+    color: #022662;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 15% 25%;
+    display: none;
+}
+.menu > div.on .menu_box {
+    display: block;
+}
+.menu > div .menu_box::before {
+    content: "";
+    left: calc(50% - 0.5em);
+    top: -10px;
+    position: absolute;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-bottom: 1em solid white;
+}
+.menu > div .menu_box > div{
+    text-align: left;
 }
 
 .lang_box {
