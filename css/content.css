@@ -221,6 +221,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
 }
 .nav_slider > div:not(:first-child, :last-child) {
     margin-left: 2%;

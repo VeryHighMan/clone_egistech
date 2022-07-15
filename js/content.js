@@ -57,6 +57,13 @@ function bindEvt() {
             }, 3000);
         }
     });
+
+    nav_sliders.forEach((el, idx) => {
+        el.addEventListener("click", function() {
+            moveByIndex(idx);
+            setNavSlider(idx);
+        });
+    });
 }
 
 function play() {
@@ -111,6 +118,7 @@ function prev() {
  * @param {boolean} direction true 오른쪽 false 왼쪽 
 */
 function moveByDirection(direction) {
+    console.log(current_idx);
     if(slide_timer) clearTimeout(slide_timer);
     pause();
     if(direction) current_idx++;
@@ -130,6 +138,24 @@ function moveByDirection(direction) {
         }, slide_timing * 1000);
     }
     setNavSlider(current_idx - 1);
+}
+
+/**
+ * 인덱스 지정 이동
+ * @param {number} idx
+*/
+function moveByIndex(idx) {
+    if(slide_timer) clearTimeout(slide_timer);
+    pause();
+    if(current_idx > idx + 1) {
+        current_idx = idx + 2;
+        moveByDirection(false);
+    } else {
+        current_idx = idx;
+        moveByDirection(true);
+    }
+
+
 }
 
 function setNavSlider(slide_idx) {
