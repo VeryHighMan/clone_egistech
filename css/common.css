@@ -57,4 +57,7 @@ body {
     font-family: "NotoDL";
 }
 
-
+.link_a {
+    display: block;
+    height: 100%;
+}

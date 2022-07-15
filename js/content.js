@@ -59,6 +59,19 @@ function bindEvt() {
     });
 }
 
+function play() {
+    ctrl_btn.classList.add("playing");
+    isPlaying = true;
+    slide_ctrl_timer = setInterval(function() {
+        moveByDirection(true);
+    }, 3000);
+}
+function pause() {
+    ctrl_btn.classList.remove("playing");
+    isPlaying = false;
+    if(slide_ctrl_timer) clearInterval(slide_ctrl_timer);
+}
+
 function next() {
     if(slide_timer) clearTimeout(slide_timer);
     current_idx++;
@@ -99,6 +112,7 @@ function prev() {
 */
 function moveByDirection(direction) {
     if(slide_timer) clearTimeout(slide_timer);
+    pause();
     if(direction) current_idx++;
     else current_idx--;
 
