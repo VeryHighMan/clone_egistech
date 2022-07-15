@@ -2,6 +2,7 @@ var img_slider;
 var prev_btn;
 var next_btn;
 var ctrl_btn;
+var menus;
 var nav_sliders;
 
 var current_idx = 1;
@@ -21,6 +22,7 @@ window.addEventListener("load", function() {
     prev_btn = document.querySelector(".prev_button");
     next_btn = document.querySelector(".next_button");
     ctrl_btn = document.querySelector(".control_button");
+    menus = document.querySelectorAll(".menu > a");
     nav_sliders = document.querySelectorAll(".nav_slider > div");
 
     bindEvt();
@@ -62,6 +64,13 @@ function bindEvt() {
         el.addEventListener("click", function() {
             moveByIndex(idx);
             setNavSlider(idx);
+        });
+    });
+
+    menus.forEach((el, idx) => {
+        el.addEventListener("mouseover", function() {
+            console.log(el);
+            console.log(idx);
         });
     });
 }

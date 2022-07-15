@@ -28,6 +28,22 @@
     margin: auto;
 }
 
+.lang_box {
+    position: relative;
+    width: 150px;
+    height: 23%;
+    border: white solid 1px;
+    margin-right: 3%;
+
+    color: white;
+    font-size: 0.8em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .img_slider_container {
     position: absolute;
     width: 100%;
