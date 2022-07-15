@@ -79,40 +79,6 @@ function pause() {
     if(slide_ctrl_timer) clearInterval(slide_ctrl_timer);
 }
 
-function next() {
-    if(slide_timer) clearTimeout(slide_timer);
-    current_idx++;
-    var x = current_idx * slide_width * -1;
-    img_slider.style.transform = `translate(${x}px, 0px)`;
-    img_slider.style.transition = `${slide_timing}s ease-out`;
-    
-    if(current_idx >= slide_cnt-1) {
-        current_idx = 1;
-        
-        slide_timer = setTimeout(function() {
-            img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
-            img_slider.style.transition = "";
-        }, slide_timing * 1000);
-    }
-}
-
-function prev() {
-    if(slide_timer) clearTimeout(slide_timer);
-    current_idx--;
-    var x = current_idx * slide_width * -1;
-    img_slider.style.transform = `translate(${x}px, 0px)`;
-    img_slider.style.transition = `${slide_timing}s ease-out`;
-    
-    if(current_idx <= 0) {
-        current_idx = 3;
-        
-        slide_timer = setTimeout(function() {
-            img_slider.style.transform = `translate(${slide_width * current_idx * -1}px, 0px)`;
-            img_slider.style.transition = "";
-        }, slide_timing * 1000);
-    }
-}
-
 /**
  * 슬라이드 방향 지정 이동
  * @param {boolean} direction true 오른쪽 false 왼쪽 
